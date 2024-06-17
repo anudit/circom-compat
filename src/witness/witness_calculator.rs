@@ -139,17 +139,7 @@ impl WitnessCalculator {
         //
         // Once Circom 2 support is more stable, feature flag can be removed
 
-        cfg_if::cfg_if! {
-            if #[cfg(feature = "circom-2")] {
-                match version {
-                    2 => new_circom2(instance, memory, version),
-                    1 => new_circom1(instance, memory, version),
-                    _ => panic!("Unknown Circom version")
-                }
-            } else {
-                new_circom1(instance, memory, version)
-            }
-        }
+        new_circom2(instance, memory, version)
     }
 
     pub fn calculate_witness<I: IntoIterator<Item = (String, Vec<BigInt>)>>(
@@ -159,17 +149,7 @@ impl WitnessCalculator {
     ) -> Result<Vec<BigInt>> {
         self.instance.init(sanity_check)?;
 
-        cfg_if::cfg_if! {
-            if #[cfg(feature = "circom-2")] {
-                match self.circom_version {
-                    2 => self.calculate_witness_circom2(inputs, sanity_check),
-                    1 => self.calculate_witness_circom1(inputs, sanity_check),
-                    _ => panic!("Unknown Circom version")
-                }
-            } else {
-                self.calculate_witness_circom1(inputs, sanity_check)
-            }
-        }
+        self.calculate_witness_circom2(inputs, sanity_check)
     }
 
     // Circom 1 default behavior
