@@ -2,7 +2,7 @@
 
 Arkworks bindings to Circom's R1CS, for Groth16 Proof and Witness generation in Rust.
 
-![Github Actions](https://github.com/gakonst/ark-circom/workflows/Tests/badge.svg)
+![Github Actions](https://github.com/arkworks-rs/circom-compat/workflows/Tests/badge.svg)
 
 ## Documentation
 
@@ -13,7 +13,7 @@ Clone the repository and run `cd ark-circom/ && cargo doc --open`
 ```toml
 [dependencies]
 
-ark-circom = { git = "https://github.com/gakonst/ark-circom.git" }
+ark-circom = "0.1.0"
 ```
 
 ## Example
