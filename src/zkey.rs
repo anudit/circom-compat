@@ -879,10 +879,10 @@ mod tests {
 
         let mut wtns = WitnessCalculator::new("./test-vectors/mycircuit.wasm").unwrap();
         let mut inputs: HashMap<String, Vec<num_bigint::BigInt>> = HashMap::new();
-        let values = inputs.entry("a".to_string()).or_insert_with(Vec::new);
+        let values = inputs.entry("a".to_string()).or_default();
         values.push(3.into());
 
-        let values = inputs.entry("b".to_string()).or_insert_with(Vec::new);
+        let values = inputs.entry("b".to_string()).or_default();
         values.push(11.into());
 
         let mut rng = thread_rng();
