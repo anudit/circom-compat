@@ -18,7 +18,6 @@ num-bigint = { version = "=0.4.3", default-features = false, features = ["rand"]
 
 # ZKP Generation
 ark-crypto-primitives = { version = "=0.4.0" }
-ark-ec = { version = "=0.4.1", default-features = false, features = ["parallel"] }
 ark-ff = { version = "=0.4.1", default-features = false, features = ["parallel", "asm"] }
 ark-std = { version = "=0.4.0", default-features = false, features = ["parallel"] }
 ark-bn254 = { version = "=0.4.0" }
