@@ -23,7 +23,7 @@ fn bench_groth(c: &mut Criterion, num_validators: u32, num_constraints: u32) {
 
     let inputs = {
         let mut inputs: HashMap<String, Vec<num_bigint::BigInt>> = HashMap::new();
-        let values = inputs.entry("a".to_string()).or_insert_with(Vec::new);
+        let values = inputs.entry("a".to_string()).or_default();
         values.push(3.into());
 
         inputs
