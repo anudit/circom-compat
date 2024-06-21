@@ -78,8 +78,9 @@ checksum = "5c6cb57a04249c6480766f7f7cef5467412af1490f8d1e243141daddada3264f"
 
 [[package]]
 name = "ark-bn254"
-version = "0.4.0"
-source = "git+https://github.com/arkworks-rs/algebra/#a4dc41de8579d24fc982f13863fa35644afb34aa"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c662c88acb89e9a9fb4c62fc5f6f102d9e1cfbd7bb6386cdb872b52a801fbece"
 dependencies = [
  "ark-ec",
  "ark-ff",
@@ -119,9 +120,11 @@ dependencies = [
 
 [[package]]
 name = "ark-crypto-primitives"
-version = "0.4.0"
-source = "git+https://github.com/arkworks-rs/crypto-primitives/#9ef17537e6a36952739d3ea909aeaf2df992988a"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7ed5da133cbc7e9371314b9ba947c3cd853ee2c3f2b69f7c9fbdd06f531c5b0e"
 dependencies = [
+ "ahash 0.8.11",
  "ark-crypto-primitives-macros",
  "ark-ec",
  "ark-ff",
@@ -132,30 +135,35 @@ dependencies = [
  "blake2",
  "derivative",
  "digest",
+ "fnv",
  "rayon",
  "sha2",
 ]
 
 [[package]]
 name = "ark-crypto-primitives-macros"
-version = "0.4.0"
-source = "git+https://github.com/arkworks-rs/crypto-primitives/#9ef17537e6a36952739d3ea909aeaf2df992988a"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2b9052772e97bf7787afc79340c435f62fba71807edd6ba5b9f1ec67a59b72bc"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
 name = "ark-ec"
-version = "0.4.2"
-source = "git+https://github.com/arkworks-rs/algebra/#a4dc41de8579d24fc982f13863fa35644afb34aa"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dfd2059d3f93e1e1d6895f0d605e5f5a256fe8aeaafa3e4f0fa49812daa151e9"
 dependencies = [
+ "ahash 0.8.11",
  "ark-ff",
  "ark-poly",
  "ark-serialize",
  "ark-std",
- "derivative",
+ "educe",
+ "fnv",
  "hashbrown 0.14.5",
  "itertools 0.13.0",
  "num-bigint",
@@ -167,16 +175,17 @@ dependencies = [
 
 [[package]]
 name = "ark-ff"
-version = "0.4.2"
-source = "git+https://github.com/arkworks-rs/algebra/#a4dc41de8579d24fc982f13863fa35644afb34aa"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "66c882014dad87209b9c504b3d74d786be0c33bab9736d2596583255d52cf4c1"
 dependencies = [
  "ark-ff-asm",
  "ark-ff-macros",
  "ark-serialize",
  "ark-std",
  "arrayvec",
- "derivative",
  "digest",
+ "educe",
  "itertools 0.13.0",
  "num-bigint",
  "num-traits",
@@ -187,29 +196,32 @@ dependencies = [
 
 [[package]]
 name = "ark-ff-asm"
-version = "0.4.2"
-source = "git+https://github.com/arkworks-rs/algebra/#a4dc41de8579d24fc982f13863fa35644afb34aa"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c989d1176288a7a591c662e16b98219505366bf48ccb5efa27984748d31b785f"
 dependencies = [
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
 name = "ark-ff-macros"
-version = "0.4.2"
-source = "git+https://github.com/arkworks-rs/algebra/#a4dc41de8579d24fc982f13863fa35644afb34aa"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e9fbc6fa5c2cb1936287236cc76572f773dbfb5df5dd814386b180e668904371"
 dependencies = [
  "num-bigint",
  "num-traits",
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
 name = "ark-groth16"
-version = "0.4.0"
-source = "git+https://github.com/arkworks-rs/groth16/#8e5c347bd8776645e046ca7ec1e4b9ff4b97c054"
+version = "0.5.0-alpha"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4ecade223752b57d97c7ca928f0d05baba9b3206d7a9a61cf6855f2eb4762e20"
 dependencies = [
  "ark-crypto-primitives",
  "ark-ec",
@@ -223,21 +235,25 @@ dependencies = [
 
 [[package]]
 name = "ark-poly"
-version = "0.4.2"
-source = "git+https://github.com/arkworks-rs/algebra/#a4dc41de8579d24fc982f13863fa35644afb34aa"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b66c85f512876fd2b8763fcb0c045d2819bbda24b6020e6a893f15985d6d1ccf"
 dependencies = [
+ "ahash 0.8.11",
  "ark-ff",
  "ark-serialize",
  "ark-std",
- "derivative",
+ "educe",
+ "fnv",
  "hashbrown 0.14.5",
  "rayon",
 ]
 
 [[package]]
 name = "ark-relations"
-version = "0.4.0"
-source = "git+https://github.com/arkworks-rs/snark#0759f942e18eb73fc2b5da2ee58d2994d3dc557d"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "67a8805794af93c9540d28f8bf1f40fa0dac8704ca0e54f508dfcc28466f130a"
 dependencies = [
  "ark-ff",
  "ark-std",
@@ -247,11 +263,13 @@ dependencies = [
 
 [[package]]
 name = "ark-serialize"
-version = "0.4.2"
-source = "git+https://github.com/arkworks-rs/algebra/#a4dc41de8579d24fc982f13863fa35644afb34aa"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "48a69fbd004ea7b7fc8946475495298341e961381d33dc5c89c112cdf319b11d"
 dependencies = [
  "ark-serialize-derive",
  "ark-std",
+ "arrayvec",
  "digest",
  "num-bigint",
  "rayon",
@@ -259,19 +277,20 @@ dependencies = [
 
 [[package]]
 name = "ark-serialize-derive"
-version = "0.4.2"
-source = "git+https://github.com/arkworks-rs/algebra/#a4dc41de8579d24fc982f13863fa35644afb34aa"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "95905921bd063ddeade5b8b992a6ee509d47c765abcbd38e70c71af1c61ee2f5"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
 name = "ark-snark"
-version = "0.4.0"
+version = "0.5.0-alpha.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "84d3cc6833a335bb8a600241889ead68ee89a3cf8448081fb7694c0fe503da63"
+checksum = "01684c73c36ad4a307517c0ad1872686dc403b351a96af657723da33d7549e63"
 dependencies = [
  "ark-ff",
  "ark-relations",
@@ -281,8 +300,9 @@ dependencies = [
 
 [[package]]
 name = "ark-std"
-version = "0.4.0"
-source = "git+https://github.com/arkworks-rs/std/#e18cd56e7e31458d481ac6373b6ec3e07abf5878"
+version = "0.5.0-alpha.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0fd37a4e913a2fa8885035d8ae16b73f79e76db9c236c4275658b58580b47f03"
 dependencies = [
  "num-traits",
  "rand",
@@ -312,7 +332,7 @@ checksum = "c6fa2087f2753a7da8cc1c0dbfcf89579dd57458e36769de5ac750b4671737ca"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -345,7 +365,7 @@ checksum = "3c87f3f15e7794432337fc718554eaa4dc8f04c9677a950ffe366f20a162ae42"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -957,7 +977,7 @@ dependencies = [
  "ident_case",
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -968,7 +988,7 @@ checksum = "733cabb43482b1a1b53eee8583c2b9e8684d592215ea83efd305dd31bc2f0178"
 dependencies = [
  "darling_core",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -1015,7 +1035,7 @@ checksum = "5f33878137e4dafd7fa914ad4e259e18a4e8e532b9617a2d0150262bf53abfce"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -1075,6 +1095,18 @@ dependencies = [
  "rfc6979",
  "signature",
  "spki",
+]
+
+[[package]]
+name = "educe"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d7bc049e1bd8cdeb31b68bbd586a9464ecf9f3944af3958a7a9d0f8b9799417"
+dependencies = [
+ "enum-ordinalize",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -1159,6 +1191,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "enum-ordinalize"
+version = "4.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fea0dcfa4e54eeb516fe454635a95753ddd39acda650ce703031c6973e315dd5"
+dependencies = [
+ "enum-ordinalize-derive",
+]
+
+[[package]]
+name = "enum-ordinalize-derive"
+version = "4.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0d28318a75d4aead5c4db25382e8ef717932d0346600cacae6357eb5941bc5ff"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.67",
+]
+
+[[package]]
 name = "enumset"
 version = "1.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1176,7 +1228,7 @@ dependencies = [
  "darling",
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -1331,7 +1383,7 @@ dependencies = [
  "reqwest",
  "serde",
  "serde_json",
- "syn 2.0.66",
+ "syn 2.0.67",
  "toml",
  "walkdir",
 ]
@@ -1349,7 +1401,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "serde_json",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -1375,7 +1427,7 @@ dependencies = [
  "serde",
  "serde_json",
  "strum",
- "syn 2.0.66",
+ "syn 2.0.67",
  "tempfile",
  "thiserror",
  "tiny-keccak",
@@ -1667,7 +1719,7 @@ checksum = "87750cf4b7a4c0625b1529e4c543c2182106e4dedc60a2a6455e00d212c489ac"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -1836,7 +1888,6 @@ version = "0.14.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
 dependencies = [
- "ahash 0.8.11",
  "allocator-api2",
 ]
 
@@ -2475,7 +2526,7 @@ dependencies = [
  "proc-macro-crate 1.3.1",
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -2692,7 +2743,7 @@ dependencies = [
  "phf_shared 0.11.2",
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -2730,7 +2781,7 @@ checksum = "2f38a4412a78282e09a2cf38d195ea5420d15ba0602cb375210efbc877243965"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -2814,7 +2865,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5f12335488a2f3b0a83b14edad48dca9879ce89b2edd10e80237e4e852dd645e"
 dependencies = [
  "proc-macro2",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -2882,9 +2933,9 @@ checksum = "dc375e1527247fe1a97d8b7156678dfe7c1af2fc075c9a4db3690ecd2a148068"
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.85"
+version = "1.0.86"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22244ce15aa966053a896d1accb3a6e68469b97c7f33f284b99f0d576879fc23"
+checksum = "5e719e8df665df0d1c8fbfd238015744736151d4445ec0836b8e628aae103b77"
 dependencies = [
  "unicode-ident",
 ]
@@ -3442,7 +3493,7 @@ checksum = "500cbc0ebeb6f46627f50f3f5811ccf6bf00643be300b4c3eabc0ef55dc5b5ba"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -3660,9 +3711,9 @@ dependencies = [
 
 [[package]]
 name = "subtle"
-version = "2.5.0"
+version = "2.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81cdd64d312baedb58e21336b31bc043b77e01cc99033ce76ef539f78e965ebc"
+checksum = "0d0208408ba0c3df17ed26eb06992cb1a1268d41b2c0e12e65203fbe3972cee5"
 
 [[package]]
 name = "svm-rs"
@@ -3697,9 +3748,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "2.0.66"
+version = "2.0.67"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c42f3f41a2de00b01c0aaad383c5a45241efc8b2d1eda5661812fda5f3cdcff5"
+checksum = "ff8655ed1d86f3af4ee3fd3263786bc14245ad17c4c7e85ba7187fb3ae028c90"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3886,7 +3937,7 @@ checksum = "630bdcf245f78637c13ec01ffae6187cca34625e8c63150d424b59e55af2675e"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -3998,7 +4049,7 @@ checksum = "34704c8d6ebcbc939824180af020566b01a7c01f80641264eba0999f6c2b6be7"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -4232,7 +4283,7 @@ dependencies = [
  "once_cell",
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
  "wasm-bindgen-shared",
 ]
 
@@ -4266,7 +4317,7 @@ checksum = "e94f17b526d0a461a191c78ea52bbce64071ed5c04c9ffe424dcb38f74171bb7"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
  "wasm-bindgen-backend",
  "wasm-bindgen-shared",
 ]
@@ -4876,7 +4927,7 @@ checksum = "15e934569e47891f7d9411f1a451d947a60e000ab3bd24fbb970f000387d1b3b"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -4896,7 +4947,7 @@ checksum = "ce36e65b0d2999d2aafac989fb249189a141aee1f53c612c1f37d72631959f69"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.66",
+ "syn 2.0.67",
 ]
 
 [[package]]
@@ -4947,3 +4998,48 @@ dependencies = [
  "cc",
  "pkg-config",
 ]
+
+[[patch.unused]]
+name = "ark-bn254"
+version = "0.4.0"
+source = "git+https://github.com/arkworks-rs/algebra/#5a781ae69c373e46c8d738d147a764a8ee510865"
+
+[[patch.unused]]
+name = "ark-crypto-primitives"
+version = "0.4.0"
+source = "git+https://github.com/arkworks-rs/crypto-primitives/#6b195553444650fb37663ee1919c9fd885f5dbd9"
+
+[[patch.unused]]
+name = "ark-ec"
+version = "0.4.2"
+source = "git+https://github.com/arkworks-rs/algebra/#5a781ae69c373e46c8d738d147a764a8ee510865"
+
+[[patch.unused]]
+name = "ark-ff"
+version = "0.4.2"
+source = "git+https://github.com/arkworks-rs/algebra/#5a781ae69c373e46c8d738d147a764a8ee510865"
+
+[[patch.unused]]
+name = "ark-groth16"
+version = "0.4.0"
+source = "git+https://github.com/arkworks-rs/groth16/#8e5c347bd8776645e046ca7ec1e4b9ff4b97c054"
+
+[[patch.unused]]
+name = "ark-poly"
+version = "0.4.2"
+source = "git+https://github.com/arkworks-rs/algebra/#5a781ae69c373e46c8d738d147a764a8ee510865"
+
+[[patch.unused]]
+name = "ark-relations"
+version = "0.4.0"
+source = "git+https://github.com/arkworks-rs/snark#0759f942e18eb73fc2b5da2ee58d2994d3dc557d"
+
+[[patch.unused]]
+name = "ark-serialize"
+version = "0.4.2"
+source = "git+https://github.com/arkworks-rs/algebra/#5a781ae69c373e46c8d738d147a764a8ee510865"
+
+[[patch.unused]]
+name = "ark-std"
+version = "0.4.0"
+source = "git+https://github.com/arkworks-rs/std/#e18cd56e7e31458d481ac6373b6ec3e07abf5878"
