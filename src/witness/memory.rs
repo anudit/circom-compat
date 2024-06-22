@@ -38,10 +38,9 @@ impl SafeMemory {
     pub fn new(memory: Memory, n32: usize, prime: BigInt) -> Self {
         // TODO: Figure out a better way to calculate these
         let short_max = BigInt::from(0x8000_0000u64);
-        let short_min = BigInt::from_biguint(
-            num_bigint::Sign::NoSign,
-            BigUint::try_from(FrConfig::MODULUS).unwrap(),
-        ) - &short_max;
+        let short_min =
+            BigInt::from_biguint(num_bigint::Sign::NoSign, BigUint::from(FrConfig::MODULUS))
+                - &short_max;
         let r_inv = BigInt::from_str(
             "9915499612839321149637521777990102151350674507940716049588462388200839649614",
         )
@@ -191,7 +190,7 @@ impl SafeMemory {
 
         // TODO: Is there a better way to read big integers?
         let big = BigInteger256::deserialize_uncompressed(buf).unwrap();
-        let big = BigUint::try_from(big).unwrap();
+        let big = BigUint::from(big);
         Ok(big.into())
     }
 }

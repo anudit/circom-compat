@@ -848,7 +848,7 @@ mod tests {
         let mut file = File::open(path).unwrap();
         let (params, _matrices) = read_zkey(&mut file).unwrap(); // binfile.proving_key().unwrap();
 
-        let cfg = CircomConfig::<Bn254>::new(
+        let cfg = CircomConfig::<Fr>::new(
             "./test-vectors/mycircuit.wasm",
             "./test-vectors/mycircuit.r1cs",
         )
@@ -879,10 +879,10 @@ mod tests {
 
         let mut wtns = WitnessCalculator::new("./test-vectors/mycircuit.wasm").unwrap();
         let mut inputs: HashMap<String, Vec<num_bigint::BigInt>> = HashMap::new();
-        let values = inputs.entry("a".to_string()).or_insert_with(Vec::new);
+        let values = inputs.entry("a".to_string()).or_default();
         values.push(3.into());
 
-        let values = inputs.entry("b".to_string()).or_insert_with(Vec::new);
+        let values = inputs.entry("b".to_string()).or_default();
         values.push(11.into());
 
         let mut rng = thread_rng();
@@ -895,7 +895,7 @@ mod tests {
         let s = ark_bn254::Fr::rand(rng);
 
         let full_assignment = wtns
-            .calculate_witness_element::<Bn254, _>(inputs, false)
+            .calculate_witness_element::<Fr, _>(inputs, false)
             .unwrap();
         let proof = Groth16::<Bn254, CircomReduction>::create_proof_with_reduction_and_matrices(
             &params,
