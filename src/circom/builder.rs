@@ -1,4 +1,4 @@
-use std::{fs::File, path::Path};
+use std::{fs::File, io::Cursor, path::Path};
 
 use ark_ff::PrimeField;
 
@@ -29,6 +29,17 @@ impl<F: PrimeField> CircomConfig<F> {
         let wtns = WitnessCalculator::new(wtns).unwrap();
         let reader = File::open(r1cs)?;
         let r1cs = R1CSFile::new(reader)?.into();
+        Ok(Self {
+            wtns,
+            r1cs,
+            sanity_check: false,
+        })
+    }
+
+    pub fn from_bytes(wtns: &[u8], r1cs: &[u8]) -> Result<Self> {
+        let wtns = WitnessCalculator::from_bytes(wtns).unwrap();
+        let r1cs = R1CSFile::new(Cursor::new(r1cs))?.into();
+
         Ok(Self {
             wtns,
             r1cs,
