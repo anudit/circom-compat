@@ -31,7 +31,7 @@ ark-std = { version = "0.5.0-alpha", default-features = false, features = [
     "parallel",
 ] }
 ark-bn254 = { version = "0.5.0-alpha" }
-ark-groth16 = { version = "0.5.0-alpha", default-features = false, features = [
+ark-groth16 = { version = "0.5.0-alpha.1", default-features = false, features = [
     "parallel",
 ] }
 ark-poly = { version = "0.5.0-alpha", default-features = false, features = [
