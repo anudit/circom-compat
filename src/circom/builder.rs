@@ -26,7 +26,7 @@ pub struct CircomConfig<F: PrimeField> {
 impl<F: PrimeField> CircomConfig<F> {
     pub fn new(wtns: impl AsRef<Path>, r1cs: impl AsRef<Path>) -> Result<Self> {
         let wtns = WitnessCalculator::new(wtns).unwrap();
-        let reader = BufReader::new(r1cs)?;
+        let reader = BufReader::new(File::open(r1cs)?);
         let r1cs = R1CSFile::new(reader)?.into();
         Ok(Self {
             wtns,
