@@ -1,4 +1,4 @@
-use std::{fs::File, io::Cursor, io::BufReader, path::Path};
+use std::{fs::File, io::Cursor, path::Path};
 use ark_ff::PrimeField;
 
 use super::{CircomCircuit, R1CS};
@@ -26,7 +26,7 @@ pub struct CircomConfig<F: PrimeField> {
 impl<F: PrimeField> CircomConfig<F> {
     pub fn new(wtns: impl AsRef<Path>, r1cs: impl AsRef<Path>) -> Result<Self> {
         let wtns = WitnessCalculator::new(wtns).unwrap();
-        let reader = BufReader::new(File::open(r1cs)?);
+        let reader = File::open(r1cs)?;
         let r1cs = R1CSFile::new(reader)?.into();
         Ok(Self {
             wtns,
